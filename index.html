@@ -340,7 +340,7 @@
 
         /* Avatar Selection */
         .avatar-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             flex-shrink: 0;
         }
 
@@ -362,7 +362,7 @@
 
         .avatar-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(45px, 1fr));
             gap: 10px;
             margin-bottom: 0.5rem;
         }
@@ -373,7 +373,7 @@
             background: rgba(255, 255, 255, 0.03);
             border: 2px solid rgba(148, 163, 184, 0.25);
             border-radius: 18px;
-            font-size: clamp(1.8rem, 4.5vw, 2.3rem);
+            font-size: clamp(1.2rem, 3.5vw, 1.6rem);
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -765,7 +765,7 @@
         /* Progress Bar */
         .progress-container {
             width: 100%;
-            height: 8px;
+            height: 15px;
             background: rgba(255, 255, 255, 0.06);
             border-radius: 4px;
             overflow: hidden;
@@ -819,7 +819,7 @@
         /* Precision Bar */
         .precision-track {
             width: 100%;
-            height: 6px;
+            height: 15px;
             background: rgba(255, 255, 255, 0.06);
             border-radius: 3px;
             margin-bottom: 1.2rem;
@@ -961,10 +961,12 @@
         #numpad {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
+            gap: 8px;
             margin-top: auto;
-            flex-shrink: 0;
-        }
+            flex-shrink: 1;
+			width: 100%; /* S'assure que la grille occupe 100% du parent */
+		box-sizing: border-box; /* Évite les débordements dus au padding interne */
+		}
 
         .num-btn {
             padding: 0;
@@ -984,8 +986,10 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 1;
-            min-height: 50px;
-            max-height: 65px;
+            min-height: 60px; /* Hauteur minimale pour rester cliquable */
+			height: 12vh; /* Utilise une fraction de la hauteur de l'écran */
+			max-height: 80px; /* Limite pour ne pas pousser le reste hors de l'écran */
+			width: 100%;
         }
 
         .num-btn::before {
@@ -1483,8 +1487,7 @@
                 </div>
                 <h1>MathMaster Pro</h1>
                 <p class="subtitle">Le maître du calcul mental</p>
-                <span class="version-badge">Elite Edition v2.0</span>
-            </div>
+             </div>
 
             <div class="avatar-section">
                 <span class="section-label"><i class="fas fa-user-circle"></i> Choisis ton avatar</span>
