@@ -235,16 +235,17 @@
         #game-container {
             width: 100%;
             max-width: 550px;
-            height: auto;
+            height: 100vh;
             max-height: 100vh;
             background: rgba(30, 41, 59, 0.95);
             backdrop-filter: blur(30px);
             border: 1px solid rgba(148, 163, 184, 0.25);
             border-radius: var(--radius);
             box-shadow: var(--shadow), 0 0 40px rgba(99, 102, 241, 0.1);
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
-            overflow: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
             display: flex;
             flex-direction: column;
         }
@@ -970,7 +971,7 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
             border: 2px solid rgba(148, 163, 184, 0.3);
             border-radius: 14px;
-            font-size: clamp(1.1rem, 3vw, 1.4rem);
+            font-size: clamp(1rem, 2.8vw, 1.3rem);
             font-weight: 800;
             color: var(--text-primary);
             cursor: pointer;
@@ -983,8 +984,8 @@
             position: relative;
             overflow: hidden;
             aspect-ratio: 1;
-            min-height: 55px;
-            max-height: 75px;
+            min-height: 50px;
+            max-height: 65px;
         }
 
         .num-btn::before {
@@ -1024,12 +1025,11 @@
         }
 
         .num-btn.confirm {
-            grid-column: 2 / 4;
             background: linear-gradient(135deg, var(--success), #059669);
             border-color: var(--success);
             color: white;
             box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-            font-size: clamp(1rem, 3vw, 1.3rem);
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
         }
 
         .num-btn.confirm:hover {
@@ -1388,7 +1388,22 @@
 
         @media (max-width: 640px) {
             #game-container {
-                padding: 1.5rem;
+                padding: 1rem;
+                border-radius: 0;
+                height: 100vh;
+                max-height: 100vh;
+            }
+
+            .question-card {
+                padding: 1.2rem 1rem;
+            }
+
+            .setup-header {
+                margin-bottom: 1.2rem;
+            }
+
+            .layout-wrapper {
+                padding: 0;
             }
         }
     </style>
@@ -1475,11 +1490,9 @@
                 <span class="section-label"><i class="fas fa-user-circle"></i> Choisis ton avatar</span>
                 <div class="avatar-grid">
                     <button class="avatar-btn selected" onclick="selectAvatar(this)"><span>🐱</span></button>
-                    <button class="avatar-btn" onclick="selectAvatar(this)"><span>🐶</span></button>
                     <button class="avatar-btn" onclick="selectAvatar(this)"><span>🐼</span></button>
                     <button class="avatar-btn" onclick="selectAvatar(this)"><span>🐵</span></button>
                     <button class="avatar-btn" onclick="selectAvatar(this)"><span>🐭</span></button>
-                    <button class="avatar-btn" onclick="selectAvatar(this)"><span>🦊</span></button>
                 </div>
             </div>
 
@@ -1573,7 +1586,7 @@
                 <button class="num-btn" data-key="9" onclick="pressKey('9')">9</button>
                 <button class="num-btn special" data-key="C" onclick="pressKey('C')"><i class="fas fa-backspace"></i></button>
                 <button class="num-btn" data-key="0" onclick="pressKey('0')">0</button>
-                <button class="num-btn confirm" data-key="Enter" onclick="checkAnswer()"><i class="fas fa-check"></i> OK</button>
+                <button class="num-btn confirm" data-key="Enter" onclick="checkAnswer()"><i class="fas fa-check"></i></button>
             </div>
         </div>
 
